@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧧 Lucky Red Envelope</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 360px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 24px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-box {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  button {
+    flex: 1;
+    padding: 14px 0;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  #yesBtn {
+    background: #e60012;
+    color: #fff;
+  }
+
+  #yesBtn:hover {
+    background: #ff1a1a;
+  }
+
+  #noBtn {
+    background: #ddd;
+    color: #333;
+  }
+
+  #noBtn:hover {
+    background: #ccc;
+  }
+
+  #qrBox {
+    display: none;
+  }
+
+  #qrBox h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Red Envelope Image -->
+  <img src="image.png" alt="Lucky Red Envelope" id="hongbaoImg">
+
+  <!-- Buttons -->
+  <div class="btn-box" id="btnBox">
+    <button id="yesBtn">YES 🧧</button>
+    <button id="noBtn">NO ❌</button>
+  </div>
+
+  <!-- QR Code -->
+  <div id="qrBox">
+    <h3>Scan to receive your lucky money 🎉</h3>
+    <img src="qrcode.png" alt="QR Code">
+  </div>
+
+</div>
+
+<script>
+  let scale = 1;
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn  = document.getElementById("noBtn");
+  const btnBox = document.getElementById("btnBox");
+  const qrBox  = document.getElementById("qrBox");
+  const hongbaoImg = document.getElementById("hongbaoImg");
+
+  noBtn.onclick = () => {
+    scale += 0.35;
+    yesBtn.style.transform = `scale(${scale})`;
+  };
+
+  yesBtn.onclick = () => {
+    btnBox.style.display = "none";
+    hongbaoImg.style.display = "none";
+    qrBox.style.display = "block";
+  };
+</script>
+
+</body>
+</html>
